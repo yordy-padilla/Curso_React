@@ -2,11 +2,11 @@ import React from 'react'
 
 const PeticionApi = () => {
   const [personajes, setPersonajes] = React.useState([])
-  //const [paginacion, setPagigancion] = React.useState(1)
+  const [paginacion, setPagigancion] = React.useState(1)
 
   const traerPersonajes = async() =>{
     try{
-      const res = await fetch("https://rickandmortyapi.com/api/character")
+      const res = await fetch(`https://rickandmortyapi.com/api/character/?page=${paginacion}`)
       const {results} = await res.json()
       setPersonajes(results)
       console.log(results)
@@ -15,19 +15,27 @@ const PeticionApi = () => {
     }
     
   }
-
+  const siguente = async() =>{
+    await setPagigancion(paginacion+1)
+    traerPersonajes()
+  }
+  const atras = async() =>{
+    await setPagigancion(paginacion-1)
+    traerPersonajes()
+  }
   return (
     <div>
     <h1>PETICION A API</h1>
     <button onClick={traerPersonajes}>Traer personaje</button>
-    <button>Siguente</button>
-    <button>Atras</button> 
+    <button onClick={atras}>Atras</button> 
+    <button onClick={siguente}>Siguente</button>
+    
     
     {
       personajes.map(({id, status, name, species, image }) => (
-        <div>
+        <div key={id}>
           <h4>{id} - {status} - {name} - {species}</h4>
-          <img scr={image} alt={name}/>
+          <img src={image} alt={name}/>
         </div>
       ))
     }
