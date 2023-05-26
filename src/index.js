@@ -4,11 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 //import Variables from './Component/Variables.jsx';
 import Contador from './Component/Contador.jsx';
+import PeticionApi from './Component/PeticionApi.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Contador />
+    <PeticionApi />
   </React.StrictMode>
 );
 
