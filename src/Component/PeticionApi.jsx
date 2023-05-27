@@ -16,11 +16,11 @@ const PeticionApi = () => {
     
   }
   const siguente = async() =>{
-    await setPagigancion(paginacion+1)
+    setPagigancion(paginacion+1)
     traerPersonajes()
   }
   const atras = async() =>{
-    await setPagigancion(paginacion-1)
+    setPagigancion(paginacion-1)
     traerPersonajes()
   }
   return (
