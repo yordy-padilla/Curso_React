@@ -16,7 +16,7 @@ const PeticionApi = () => {
   }
   const siguente = async() =>{
     setPagigancion(paginacion+1)
-    traerPersonajes()
+    traerPersonajes() 
   }
   const atras = async() =>{
     setPagigancion(paginacion-1)
